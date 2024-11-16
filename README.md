@@ -41,6 +41,7 @@ INFRA/
 
 ### 폴더 구조 구성 근거
 (Terraform 표준 폴더 구조)[https://developer.hashicorp.com/terraform/language/modules/develop/structure]
+
 (Helm Chart 작성 가이드)[https://helm.sh/docs/topics/charts/]
 
 ## 기술 스택
@@ -83,8 +84,8 @@ API 서버 구현 간 사용한 기술 스택 및 선정 근거는 [API Server R
 - ✅ DB CRUD 기능
 - ✅ Helm Chart 패키징
 
-### 구축 예정 기능 (Not mandatory / Optional)
-- [ ] Healthcheck 기능 강화 (Kubernetes 환경 정보 및 DB상태, 지연 시간 측정, 상세한 로그 제공)
+### 구축 예정 기능 (Not mandatory / Optional
+- ✅ Healthcheck 기능 강화 (Kubernetes 환경 정보 및 DB상태, 지연 시간 측정, 상세한 로그 제공)
 - [ ] Prometheus, Grafana를 통한 모니터링
 - [ ] DB 백업 정책 도입
 - [ ] ArgoCD를 통해 API Server의 Repository에 변경 발생 시 무중단 배포
@@ -93,6 +94,5 @@ API 서버 구현 간 사용한 기술 스택 및 선정 근거는 [API Server R
 1. kubectl get all -n my-app 결과
 ![alt text](images/image.png)
 
-2. API 헬스체크 결과
-
-3. PostgreSQL 연결 체크 결과
+2. Health Check 결과
+<img width="982" alt="스크린샷 2024-11-17 오전 2 26 27" src="https://github.com/user-attachments/assets/fbd6bede-5a48-4271-959a-f072cf705704">
