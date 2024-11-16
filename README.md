@@ -17,10 +17,13 @@ Terraform을 통한 인프라 관리 및 Helm chart를 통한 애플리케이션
 API 서버 구현 간 사용한 기술 스택 및 선정 근거는 [API Server Repository](https://github.com/sejoonkimmm/API-Repository) 링크를 통해 확인하실 수 있습니다.
 
 ## 구축 과정
-[Minikube 설정](docs/minikube-setup.md)
-[Helm, Terraform 구성 전 수동 테스트](docs/manual-test.md)
-[Terraform 구성](docs/terraform-setup.md)
-[Helm Chart 구성](docs/helm-setup.md)
+1. [Minikube 설정](docs/minikube-setup.md)
+
+2. [Helm, Terraform 구성 전 수동 테스트](docs/manual-test.md)
+
+3. [Terraform 구성](docs/terraform-setup.md)
+
+4. [Helm Chart 구성](docs/helm-setup.md)
 
 ## 구축 완료 보고
 - [ ] Minikube Cluster 구성
