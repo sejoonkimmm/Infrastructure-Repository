@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api-server
+  template:
+    metadata:
+      labels:
+        app: api-server
+    spec:
+      containers:
+      - name: api-server
+        image: sejokim/api-server:latest
+        imagePullPolicy: Always
+        command: ["python"]
+        args: ["-m", "uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+        ports:
+        - containerPort: 8000
+        env:
+        - name: DATABASE_URL
+          value: "postgresql://postgres:testpassword@postgres:5432/testdb"
+        - name: PYTHONUNBUFFERED
+          value: "1"
+        resources:
+          requests:
+            cpu: "200m"
+            memory: "256Mi"
+          limits:
+            cpu: "500m"
+            memory: "512Mi"
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: api-server
+spec:
+  selector:
+    app: api-server
+  ports:
+    - protocol: TCP
+      port: 8000
+      targetPort: 8000

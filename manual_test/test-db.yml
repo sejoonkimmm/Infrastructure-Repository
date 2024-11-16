@@ -1,0 +1,61 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: postgres
+spec:
+  serviceName: postgres
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgres
+  template:
+    metadata:
+      labels:
+        app: postgres
+    spec:
+      securityContext:
+        fsGroup: 1001
+        runAsUser: 1001
+      containers:
+      - name: postgres
+        image: bitnami/postgresql:16
+        env:
+        - name: POSTGRESQL_USERNAME     
+          value: "postgres"
+        - name: POSTGRESQL_PASSWORD       
+          value: "testpassword"
+        - name: POSTGRESQL_DATABASE       
+          value: "testdb"
+        - name: POSTGRESQL_VOLUME_DIR      
+          value: "/bitnami/postgresql"
+        - name: POSTGRESQL_DATA_DIR       
+          value: "/bitnami/postgresql/data"
+        - name: ALLOW_EMPTY_PASSWORD       
+          value: "no"
+        ports:
+        - containerPort: 5432
+        volumeMounts:
+        - name: postgres-data
+          mountPath: /bitnami/postgresql
+  volumeClaimTemplates:
+  - metadata:
+      name: postgres-data
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 1Gi
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres
+spec:
+  selector:
+    app: postgres
+  ports:
+    - protocol: TCP
+      port: 5432
+      targetPort: 5432
