@@ -4,8 +4,12 @@
 Kubernetes(minikube) 환경에서 Health Check, CRUD API 서버와 Database를 구축하는 프로젝트입니다.
 Terraform을 통한 인프라 관리 및 Helm chart를 통한 애플리케이션 배포를 구현했습니다.
 
-## 아키텍처 구상도
+## 아키텍처 구상도 및 폴더 구조
 - TODO
+
+### 폴더 구조 구성 근거
+(Terraform 표준 폴더 구조)[https://developer.hashicorp.com/terraform/language/modules/develop/structure]
+(Helm Chart 작성 가이드)[https://helm.sh/docs/topics/charts/]
 
 ## 기술 스택
 - **Terraform v1.5.7**
