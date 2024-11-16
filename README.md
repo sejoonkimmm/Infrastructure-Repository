@@ -7,6 +7,38 @@ Terraform을 통한 인프라 관리 및 Helm chart를 통한 애플리케이션
 ## 아키텍처 구상도 및 폴더 구조
 - TODO
 
+```
+INFRA/
+├── helm/
+│   ├── api-server/
+│   │   ├── templates/
+│   │   │   ├── deployment.yaml
+│   │   │   └── service.yaml
+│   │   ├── Chart.yaml
+│   │   └── values.yaml
+│   └── postgresql/
+│       ├── templates/
+│       │   ├── statefulset.yaml 
+│       │   └── service.yaml
+│       ├── Chart.yaml
+│       └── values.yaml
+├── images/
+│   └── ...
+├── manual_test/
+│   ├── test-api.yml
+│   └── test-db.yml
+└── terraform/
+   ├── .terraform/
+   ├── main.tf
+   ├── providers.tf
+   ├── variables.tf
+   ├── terraform.tfvars
+   ├── .terraform.lock.hcl
+   ├── terraform.tfstate
+   ├── terraform.tfstate.backup
+   └── .gitignore
+```
+
 ### 폴더 구조 구성 근거
 (Terraform 표준 폴더 구조)[https://developer.hashicorp.com/terraform/language/modules/develop/structure]
 (Helm Chart 작성 가이드)[https://helm.sh/docs/topics/charts/]
@@ -42,17 +74,24 @@ API 서버 구현 간 사용한 기술 스택 및 선정 근거는 [API Server R
 ## 구축 완료 보고
 - ✅ Minikube Cluster 구성
 - ✅ PostgreSQL StatefulSet 배포
-- [ ] CRUD API Server 배포
-- [ ] Helm chart 구성
-- [ ] Terraform 인프라 관리
+- ✅ CRUD API Server 배포
+- ✅ Helm chart 구성
+- ✅ Terraform 인프라 관리
 
 ### 기능 구현 완료
 - ✅ Health Check 엔드 포인트
 - ✅ DB CRUD 기능
-- [ ] Helm Chart 패키징
+- ✅ Helm Chart 패키징
+
+### 구축 예정 기능 (Not mandatory / Optional)
+- [ ] Healthcheck 기능 강화 (Kubernetes 환경 정보 및 DB상태, 지연 시간 측정, 상세한 로그 제공)
+- [ ] Prometheus, Grafana를 통한 모니터링
+- [ ] DB 백업 정책 도입
+- [ ] ArgoCD를 통해 API Server의 Repository에 변경 발생 시 무중단 배포
 
 ### 구축 결과
-1. kubectl get all 결과
+1. kubectl get all -n my-app 결과
+![alt text](images/image.png)
 
 2. API 헬스체크 결과
 
