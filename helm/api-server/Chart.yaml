@@ -1,0 +1,4 @@
+apiVersion: v2
+name: api-server
+description: API Server Application
+version: 0.1.0
