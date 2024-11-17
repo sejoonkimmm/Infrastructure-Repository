@@ -5,7 +5,8 @@ Kubernetes(minikube) 환경에서 Health Check, CRUD API 서버와 Database를 �
 Terraform을 통한 인프라 관리 및 Helm chart를 통한 애플리케이션 배포를 구현했습니다.
 
 ## 아키텍처 구상도 및 폴더 구조
-- TODO
+![minikube](https://github.com/user-attachments/assets/78cc2f79-1a81-48c7-b401-bf0821563471)
+
 
 ```
 INFRA/
@@ -16,12 +17,6 @@ INFRA/
 │   │   │   └── service.yaml
 │   │   ├── Chart.yaml
 │   │   └── values.yaml
-│   └── postgresql/
-│       ├── templates/
-│       │   ├── statefulset.yaml 
-│       │   └── service.yaml
-│       ├── Chart.yaml
-│       └── values.yaml
 ├── images/
 │   └── ...
 ├── manual_test/
@@ -33,7 +28,6 @@ INFRA/
    ├── providers.tf
    ├── variables.tf
    ├── terraform.tfvars
-   ├── .terraform.lock.hcl
    ├── terraform.tfstate
    ├── terraform.tfstate.backup
    └── .gitignore
@@ -72,7 +66,7 @@ API 서버 구현 간 사용한 기술 스택 및 선정 근거는 [API Server R
 - Helm Chart 작성을 위한 기초 자료 수집
 - 문제 발생 시 빠른 디버깅
 
-## 구축 완료 보고
+## 구축 완료 보고 (필수 사항)
 - ✅ Minikube Cluster 구성
 - ✅ PostgreSQL StatefulSet 배포
 - ✅ CRUD API Server 배포
@@ -87,7 +81,7 @@ API 서버 구현 간 사용한 기술 스택 및 선정 근거는 [API Server R
 ### 구축 예정 기능 (Not mandatory / Optional)
 - ✅ Healthcheck 기능 강화 (Kubernetes 환경 정보 및 DB상태, 지연 시간 측정, 상세한 로그 제공)
 - ✅ DB 고가용성 정책 도입 (Streaing Replication)
-- [ ] TODO(CRUD) API 서버 기능 강화 및 예외처리
+- [ ] TODO(CRUD) API 서버 강화된 예외처리
 - [ ] Prometheus, Grafana를 통한 모니터링
 - [ ] ArgoCD를 통해 API Server의 Repository에 변경 발생 시 무중단 배포
 
