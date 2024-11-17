@@ -84,10 +84,11 @@ API 서버 구현 간 사용한 기술 스택 및 선정 근거는 [API Server R
 - ✅ DB CRUD 기능
 - ✅ Helm Chart 패키징
 
-### 구축 예정 기능 (Not mandatory / Optional
+### 구축 예정 기능 (Not mandatory / Optional)
 - ✅ Healthcheck 기능 강화 (Kubernetes 환경 정보 및 DB상태, 지연 시간 측정, 상세한 로그 제공)
+- ✅ DB 고가용성 정책 도입 (Streaing Replication)
+- [ ] TODO(CRUD) API 서버 기능 강화 및 예외처리
 - [ ] Prometheus, Grafana를 통한 모니터링
-- [ ] DB 백업 정책 도입
 - [ ] ArgoCD를 통해 API Server의 Repository에 변경 발생 시 무중단 배포
 
 ### 구축 결과
