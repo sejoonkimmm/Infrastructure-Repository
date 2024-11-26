@@ -55,7 +55,7 @@ Directory Structure Rationale
 (Helm Chart Writing Guide)[https://helm.sh/docs/topics/charts/]
 
 ## Implementation Report
-### 구축 순서
+### Implementation Sequence
 1. [Minikube Configuration](docs/minikube-setup.md)
 - Kubernetes cluster verification in local development environment
 - Cost-efficient testing environment
